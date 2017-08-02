@@ -7,4 +7,4 @@
 * https://travis-ci.org/enpitut2017/a1
 * まだない
 ## メンバー
-[omiya-pan](https://github.com/omiya-pan") [yuyurun](https://github.com/yuyurun) [NaOboe](https://github.com/NaOboe) [kato11433](https://github.com/kato11433) [sasaki-trombone](https://github.com/sasaki-trombone) [Yusuke57](https://github.com/Yusuke57)
+[omiya-pan](https://github.com/omiya-pan) [yuyurun](https://github.com/yuyurun) [NaOboe](https://github.com/NaOboe) [kato11433](https://github.com/kato11433) [sasaki-trombone](https://github.com/sasaki-trombone) [Yusuke57](https://github.com/Yusuke57)
