@@ -1,0 +1,21 @@
+current directory: /home/vagrant/workspace/a1/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+/home/vagrant/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170802-28896-1ik3b9a.rb extconf.rb
+creating Makefile
+
+current directory: /home/vagrant/workspace/a1/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" clean
+make: Warning: File 'Makefile' has modification time 77 s in the future
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/a1/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR="
+make: Warning: File 'Makefile' has modification time 77 s in the future
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+make: warning:  Clock skew detected.  Your build may be incomplete.
+
+current directory: /home/vagrant/workspace/a1/vendor/bundle/ruby/2.4.0/gems/websocket-driver-0.6.5/ext/websocket-driver
+make "DESTDIR=" install
+make: Warning: File 'Makefile' has modification time 76 s in the future
+/usr/bin/install -c -m 0755 websocket_mask.so ./.gem.20170802-28896-1m9bamg
+make: warning:  Clock skew detected.  Your build may be incomplete.
