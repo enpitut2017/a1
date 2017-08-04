@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20170804004652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
-    t.integer "year"
     t.string "company"
     t.integer "department_id"
     t.index ["department_id"], name: "index_stories_on_department_id"
