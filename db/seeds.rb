@@ -1,5 +1,11 @@
 # coding: utf-8
 
+Category.create(:name => '体験談')
+Category.create(:name => '面接')
+Category.create(:name => 'インターン')
+Category.create(:name => '全体の流れ')
+Category.create(:name => 'その他')
+
 Department.create(:name => '人文学類')
 Department.create(:name => '比較文化学類')
 Department.create(:name => '日本語・日本文化学類')
