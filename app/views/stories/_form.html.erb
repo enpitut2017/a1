@@ -17,6 +17,26 @@
   </div>
 
   <div class="field">
+    <%= form.label :department_id %>
+    <%= form.collection_select :department_id, Department.all, :id, :name ,:prompt => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :year %>
+    <%= form.text_field :year, id: :story_year %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :name ,:prompt => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :company %>
+    <%= form.text_field :company, id: :story_company %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
     <%= form.text_area :content, id: :story_content, size: "100x10" %>
   </div>
