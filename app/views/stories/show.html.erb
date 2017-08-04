@@ -1,8 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>名前 :</strong>
+  <strong>投稿者 :</strong>
   <%= @story.name %>
+
+  （<%= @story.department.name %>学類
+  <%= @story.year %>年卒業）
+</p>
+
+<p>
+  <strong>カテゴリ :</strong>
+  <%= @story.category.name %>
+</p>
+
+<p>
+  <strong>企業名 :</strong>
+  <%= @story.company %>
 </p>
 
 <p>
