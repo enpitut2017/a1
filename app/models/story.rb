@@ -1,8 +1,8 @@
 class Story < ApplicationRecord
 
-  belongs_to :category
-  belongs_to :department
-  
+  belongs_to :category, optional: true
+  belongs_to :department, optional: true
+
   validate :content_error
   validate :name_error
 
