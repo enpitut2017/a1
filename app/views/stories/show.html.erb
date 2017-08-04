@@ -25,5 +25,34 @@
   <%= @story.content %>
 </p>
 
+
+<div class="share container">
+		<div class="row">
+			<div class="sharebtns col-xs-6 col-sm-4">
+				<div class="twitterbtn">
+          <script language="JavaScript"><!--document.write("URL:"+location.href);// --></script>
+					<a href="http://twitter.com/share?url=サイトのurl&text=ツイートに表示する文章&via=ツイッターのアカウント名" target="_blank">Twitter</a>
+				</div>
+			</div>
+
+			<div class="sharebtns col-xs-6 col-sm-4">
+				<div class="facebookbtn">
+					<a href="http://www.facebook.com/sharer.php?u=サイトのurl" target="_blank">Facebook</a>
+				</div>
+			</div>
+
+			<div class="sharebtns col-xs-6 col-sm-4">
+				<div class="linebtn">
+					<a href="http://line.me/R/msg/text/?投稿する文章とサイトのurl" target="_new">LINE</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
 <!-- <%= link_to 'Edit', edit_story_path(@story) %> | -->
 <%= link_to '一覧に戻る', stories_path %>

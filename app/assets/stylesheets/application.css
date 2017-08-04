@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+ .share .row div {
+ 	text-align: center;
+ 	padding: 10px;
+ }
+
+ .share .row {
+ 	padding: 5px;
+ }
+
+ .sharebtns div {
+ 	border-radius: 5px;
+ }
+
+ .sharebtns a {
+ 	display: block;
+     color: #fff;
+     padding: 5px;
+ }
+
+ .twitterbtn {
+ 	background-color: #009EF5;
+ }
+
+ .facebookbtn {
+ 	background-color: #3B539A;
+ }
+
+ .linebtn {
+ 	background-color: #00C300;
+ }
