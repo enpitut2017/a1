@@ -5,16 +5,21 @@
 <table>
     <% @stories.each do |story| %>
       <tr>
-        <th>名前：</th>
+        <th width="60px">名前：</th>
         <td><%= story.name %></td>
       </tr>
       <tr>
-        <th>体験談：</th>
+        <th width="60px">体験談：</th>
         <td><%= story.content %></td>
-        <td><%= link_to '詳細ページ', story %></td>
+        <td width="80px"><%= link_to '詳細ページ', story %></td>
         <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
+      <tr>
+        <th width="60px">カテゴリ：</th>
+        <td><%= story.category.name %></td>
+      </tr>
+      <tr height="30px"><td></td></tr>
     <% end %>
 </table>
 
