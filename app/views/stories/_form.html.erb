@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :department_id, "学類" %>
-    <%= form.collection_select :department_id, Department.all, :id, :name ,:prompt => "選択してください" %>
+    <%= form.collection_select :department_id, Department.all, :id, :name ,:department_id => 1 %>
   </div>
 
   <div class="field">
@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :category_id, "カテゴリー" %>
-    <%= form.collection_select :category_id, Category.all, :id, :name ,:prompt => "選択してください" %>
+    <%= form.collection_select :category_id, Category.all, :id, :name ,:category_id => 1 %>
   </div>
 
   <div class="field">
