@@ -2,25 +2,20 @@
 
 <h1>体験談一覧</h1>
 
-<table>
-  <% @stories.each do |story| %>
+<% @stories.each do |story| %>
+  <table class="table table-bordered">
     <tr>
-      <th width="80px">名前：</th>
+      <th style="width: 80px;" class="bg-primary">名前</th>
       <td><%= story.name %></td>
     </tr>
     <tr>
-      <th width="80px">体験談：</th>
-      <td><%= story.content %></td>
-      <td width="80px"></td>
+      <th style="width: 80px;" class="bg-primary">体験談</th>
+      <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
       <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
       <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
     </tr>
-    <tr>
-      <td><%= link_to 'もっと見る', story %></td>
-    </tr>
-    <tr height="30px"><td></td></tr>
-  <% end %>
-</table>
+  </table>
+<% end %>
 
 
 <%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
