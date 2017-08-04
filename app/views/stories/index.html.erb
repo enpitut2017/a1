@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>体験談一覧</h1>
+  <h1>体験談一覧</h1>
 
-<table>
+  <table>
     <% @stories.each do |story| %>
       <tr>
         <th width="80px">名前：</th>
@@ -20,8 +21,8 @@
       </tr>
       <tr height="30px"><td></td></tr>
     <% end %>
-</table>
+  </table>
 
-<br>
 
-<%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
+  <%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
+</div>
