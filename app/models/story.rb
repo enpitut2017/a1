@@ -1,6 +1,8 @@
 class Story < ApplicationRecord
+
+  belongs_to :category
+  belongs_to :department
   
-  #validates :name, length: { maximum:20 }
   validate :content_error
   validate :name_error
 
@@ -21,4 +23,5 @@ class Story < ApplicationRecord
       errors[:base] << "Nameには２０文字までしか入力できません"
     end
   end
+
 end
