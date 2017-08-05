@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @stories = Story.order('created_at DESC').all
     @departments = Department.all
     @categories = Category.all
   end
