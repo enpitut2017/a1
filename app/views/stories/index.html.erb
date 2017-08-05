@@ -2,19 +2,49 @@
 
 <h1>体験談一覧</h1>
 
-<% @stories.each do |story| %>
-  <table class="table table-bordered">
-    <tr>
-      <th style="width: 80px;" class="bg-primary">名前</th>
-      <td><%= story.name %></td>
-    </tr>
-    <tr>
-      <th style="width: 80px;" class="bg-primary">体験談</th>
-      <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
-      <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
-      <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-    </tr>
-  </table>
+<!--検索機能-->
+<form name="department_form" method="get">
+  <select name="department_select">
+    <% @departments.each do |dep| %>
+      <option value="<%= dep.id %>"><%= dep.name %></option>
+    <% end %>
+  </select>
+  <input type="submit">
+</form>
+<!--検索機能ここまで-->
+
+
+<% if params["department_select"] == nil %>
+  <% @stories = Story.all %>
+  <% @stories.each do |story| %>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 80px;" class="bg-primary">名前</th>
+        <td><%= story.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">体験談</th>
+        <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+        <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    </table>
+  <% end %>
+<% else %>
+  <% @stories.where(department_id: params["department_select"]).each do |story| %>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 80px;" class="bg-primary">名前</th>
+        <td><%= story.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">体験談</th>
+        <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+        <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    </table>
+  <% end %>
 <% end %>
 
 

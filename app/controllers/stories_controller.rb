@@ -5,6 +5,7 @@ class StoriesController < ApplicationController
   # GET /stories.json
   def index
     @stories = Story.all
+    @departments = Department.all
   end
 
   # GET /stories/1
@@ -71,4 +72,5 @@ class StoriesController < ApplicationController
     def story_params
       params.require(:story).permit(:name, :content, :category_id, :year, :department_id, :company)
     end
+
 end
