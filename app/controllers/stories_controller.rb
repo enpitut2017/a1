@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
   def index
     @stories = Story.all
     @departments = Department.all
+    @categories = Category.all
   end
 
   # GET /stories/1

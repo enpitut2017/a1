@@ -3,8 +3,10 @@
 <h1>体験談一覧</h1>
 
 <!--検索機能-->
-<form name="department_form" method="get">
+<form name="search_form" method="get">
+
   <strong>学類</strong>
+  <% @departments = Department.all %>
   <select name="department_select">
     <option value="0">指定しない</option>
     <% @departments.each do |dep| %>
@@ -15,31 +17,57 @@
       <% end %>
     <% end %>
   </select>
+
+  <strong>カテゴリ</strong>
+  <% @categories = Category.all %>
+  <select name="category_select">
+    <option value="0">指定しない</option>
+    <% @categories.each do |cat| %>
+      <% if params["category_select"].to_i == cat.id %>
+        <option value="<%= cat.id %>" selected="selected"><%= cat.name %></option>
+      <% else %>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+
   <input type="submit" value="検索">
 </form>
 <!--検索機能ここまで-->
 
 
-<% if params["department_select"] == nil || params["department_select"] == "0" %>
-  <% @display_stories = @stories %>
-<% else %>
-  <% @display_stories = @stories.where(department_id: params["department_select"]) %>
+<% if params["department_select"].to_i > 0 %>
+  <% @stories = @stories.where(department_id: params["department_select"]) %>
+<% end %>
+<% if params["category_select"].to_i > 0 %>
+  <% @stories = @stories.where(category_id: params["category_select"]) %>
 <% end %>
 
-<% @display_stories.each do |story| %>
+
+<% if @stories.length == 0 %>
+
   <table class="table table-bordered">
     <tr>
-      <th style="width: 80px;" class="bg-primary">名前</th>
-      <td><%= story.name %></td>
-    </tr>
-    <tr>
-      <th style="width: 80px;" class="bg-primary">体験談</th>
-      <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
-      <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
-      <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      <td>現在、該当する投稿はありません。</td>
     </tr>
   </table>
-<% end %>
 
+<% else %>
+
+  <% @stories.each do |story| %>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 80px;" class="bg-primary">名前</th>
+        <td><%= story.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">体験談</th>
+        <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+        <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+    </table>
+  <% end %>
+<% end %>
 
 <%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
