@@ -50,3 +50,15 @@
    color: #2255AA;
    text-decoration: underline;
   }
+
+
+.table-bordered .border-only-top {
+    border-bottom-style: hidden;
+    border-left-style: hidden;
+    border-right-style: hidden;
+  }
+
+ .created-at {
+   text-align: right;
+   color: #AAAAAA
+ }

@@ -66,6 +66,10 @@
         <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
+      <tr>
+        <td class="border-only-top"></td>
+        <td class="border-only-top created-at">投稿日：<%= story.created_at.to_s.split(" ")[0] %></td>
+      </tr>
     </table>
   <% end %>
 <% end %>
