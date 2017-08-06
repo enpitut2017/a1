@@ -62,3 +62,8 @@
    text-align: right;
    color: #AAAAAA
  }
+
+ form {
+   margin-top: 3em;
+   margin-bottom: 1em;
+ }
