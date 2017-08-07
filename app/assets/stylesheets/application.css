@@ -52,6 +52,11 @@ background-color: #00C300;
   text-decoration: underline;
 }
 
+.title_text {
+  padding: 1px 10px;
+  font-size: 1.5em;
+}
+
 .table-bordered .border-only-top {
   border-bottom-style: hidden;
   border-left-style: hidden;
@@ -72,8 +77,36 @@ table {
   table-layout: fixed;
 }
 
+td.centering_icon{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.content_pad{
+  padding: 36px;
+}
+
 @media (min-width: 992px) {
   .container {
     width: 750px;
   }
+}
+
+/* カテゴリの色分け */
+
+.cat_bg1 {
+  background-color: #f8c378;
+}
+
+.cat_bg2 {
+  background-color: #dbd5df;
+}
+
+.cat_bg3 {
+  background-color: #a8bf8f;
+}
+
+.cat_bg4 {
+  background-color: #85cbf9;
 }
