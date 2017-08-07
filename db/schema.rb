@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20170807014911) do
     t.integer "year"
     t.integer "month"
     t.text "title"
-    t.integer "like_count"
+    t.integer "like_count", default: 0
     t.index ["department_id"], name: "index_stories_on_department_id"
   end
 
