@@ -48,7 +48,7 @@
     <option value="2" <%= slc2 %> >時期で表示</option>
   </select>
 
-  <% if params["sort_type"] == '2' %>
+
   <select name="year">
     <% for num in 1..4 do %>
       <% if params["year"] == num.to_s %>
@@ -67,7 +67,7 @@
       <% end %>
     <% end %>
   </select>月
-  <% end %>
+
 
   <% if params["sort_type"] == '0' %>
     <% @stories = Story.order('created_at DESC').all %>
