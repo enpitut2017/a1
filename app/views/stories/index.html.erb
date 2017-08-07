@@ -55,6 +55,7 @@
 <% else %>
 
   <% @stories.each do |story| %>
+    <% cat = story.category_id %>
     <table class="table table-bordered">
       <tr class="bg-primary">
         <th colspan="3"><%= story.title %><div align="right"><%= story.category.name %></div></th>
