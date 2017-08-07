@@ -68,7 +68,7 @@
       <tr>
 
 
-<%= link_to "いいね", story_like_path(story), method: :patch, remote: true %>
+<!--<%= link_to "いいね", story_like_path(story), method: :patch, remote: true %> -->
 <%= story.like_count %>
         <td colspan="3"><%= truncate(simple_format(story.content), length: 160, escape: false) %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
         <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>

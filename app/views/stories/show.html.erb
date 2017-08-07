@@ -3,6 +3,9 @@
 <h1>体験談詳細</h1>
 <!-- <% params["department_select"] = @story.department.name %> -->
 
+<%= link_to "いいね", story_like_path(@story), method: :patch, remote: true %>
+<%= @story.like_count %>
+
 <table class="table table-bordered" width="60%">
   <col width="15%">
   <col width="45%">

@@ -14,7 +14,7 @@ class StoriesController < ApplicationController
     @story.like_count = 0 if @story.like_count.nil?
     @story.like_count += 1
     @story.save
-    redirect_to stories_url
+    redirect_to 'show'
   end
 
   def show
