@@ -4,10 +4,15 @@
 <!-- <% params["department_select"] = @story.department.name %> -->
 
 <p>
+  <strong>タイトル :</strong>
+  <%= @story.title %>
+</p>
+
+<p>
   <strong>投稿者 :</strong>
   <%= @story.name %> さん
 
-  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %> <%= @story.year %>年卒業）
+  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>）
 </p>
 
 <p>
@@ -18,6 +23,11 @@
 <p>
   <strong>カテゴリ :</strong>
   <%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %>
+</p>
+
+<p>
+  <strong>時期 :</strong>
+  大学<%= @story.year %>年　<%= @story.month %>月
 </p>
 
 <p>
