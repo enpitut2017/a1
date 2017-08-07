@@ -27,9 +27,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :year, "卒業年度"%>
-    <%= form.text_field :year, id: :story_year %>
+    <p>時期</p>
+    <%= form.label :year, "年次"%>
+    <%= select_tag 'story[year]', options_for_select([["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"]]) %>
+    <%= form.label :month, "月"%>
+    <%= select_tag 'story[month]', options_for_select([["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"], ["6", "6"], ["7", "7"], ["8", "8"], ["9", "9"], ["10", "10"], ["11", "11"], ["12", "12"]]) %>
   </div>
+
 
   <div class="field">
     <%= form.label :category_id, "カテゴリー" %>

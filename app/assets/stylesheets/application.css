@@ -12,68 +12,92 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
 
- .share .row div {
- 	text-align: center;
- 	padding: 10px;
- }
+/*
+.share .row div {
+text-align: center;
+padding: 10px;
+}
 
- .share .row {
- 	padding: 5px;
- }
+.share .row {
+padding: 5px;
+}
 
- .sharebtns div {
- 	border-radius: 5px;
- }
+.sharebtns div {
+border-radius: 5px;
+}
 
- .sharebtns a {
- 	display: block;
-     color: #fff;
-     padding: 5px;
- }
+.sharebtns a {
+display: block;
+    color: #fff;
+    padding: 5px;
+}
 
- .twitterbtn {
- 	background-color: #009EF5;
- }
+.twitterbtn {
+background-color: #009EF5;
+}
 
- .facebookbtn {
- 	background-color: #3B539A;
- }
+.facebookbtn {
+background-color: #3B539A;
+}
 
- .linebtn {
- 	background-color: #00C300;
- }
+.linebtn {
+background-color: #00C300;
+}
+*/
 
-
- .textlink {
-   color: #2255AA;
-   text-decoration: underline;
-  }
-
+.textlink {
+  color: #2255AA;
+  text-decoration: underline;
+}
 
 .table-bordered .border-only-top {
-    border-bottom-style: hidden;
-    border-left-style: hidden;
-    border-right-style: hidden;
+  border-bottom-style: hidden;
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+
+.created-at {
+  text-align: right;
+  color: #AAAAAA
+}
+
+form {
+  margin-top: 3em;
+  margin-bottom: 1em;
+}
+
+table {
+  table-layout: fixed;
+}
+
+td.centering_icon{
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 750px;
   }
+}
 
- .created-at {
-   text-align: right;
-   color: #AAAAAA
- }
+/* カテゴリの色分け */
 
- form {
-   margin-top: 3em;
-   margin-bottom: 1em;
- }
+.cat_bg1 {
+  background-color: #f8c378;
+}
 
- table {
-   table-layout: fixed;
- }
+.cat_bg2 {
+  background-color: #dbd5df;
+}
 
- td.centering_icon{
-   display: table-cell;
-   text-align: center;
-   vertical-align: middle;
- }
+.cat_bg3 {
+  background-color: #a8bf8f;
+}
+
+.cat_bg4 {
+  background-color: #85cbf9;
+}

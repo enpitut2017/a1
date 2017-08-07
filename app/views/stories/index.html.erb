@@ -55,8 +55,10 @@
 <% else %>
 
   <% @stories.each do |story| %>
+    <% cat_id = story.category_id %>
+    <% cls = "cat_bg" + cat_id.to_s %>
     <table class="table table-bordered">
-      <tr class="bg-primary">
+      <tr class="<%= cls %>">
         <th colspan="3"><%= story.title %><div align="right"><%= story.category.name %></div></th>
       </tr>
       <tr>
@@ -80,5 +82,5 @@
 
 <%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%><br><br>
   <p id="pageTop">
-    <a href="#" class="btn btn-block btn-primary">Page Top</a>
+    <%= link_to 'Page top', "#", :class => 'btn btn-default'%>
   </p>
