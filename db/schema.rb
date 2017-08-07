@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170807013436) do
     t.string "company"
     t.integer "department_id"
     t.integer "year"
+    t.integer "month"
     t.text "title"
     t.index ["department_id"], name: "index_stories_on_department_id"
   end
