@@ -62,11 +62,8 @@
       </tr>
       <tr>
         <th style="width: 80px;" class="bg-primary">体験談</th>
-        <% if story.content.length > 400 %>
-          <% story.content = story.content[0, 400] %>
-          <% story.content << "......" %>
-        <% end %>
-        <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+
+        <td><%= truncate(simple_format(story.content), length: 160, escape: false) %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
         <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
