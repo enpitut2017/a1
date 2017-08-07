@@ -28,27 +28,46 @@
         <option value="<%= cat.id %>"><%= cat.name %></option>
       <% end %>
     <% end %>
-  </select>
+  </select>　
 
   <!--ソート方法-->
   <select name="sort_type">
     <% slc0 = '' %>
     <% slc1 = '' %>
+    <% slc2 = '' %>
     <% if params["sort_type"] == '1' %>
       <% slc1 = "selected='selected'" %>
+    <% elsif params["sort_type"] == '2' %>
+      <% slc2 = "selected='selected'" %>
     <% else %>
       <% slc0 = "selected='selected'" %>
     <% end %>
 
     <option value="0" <%= slc0 %> >新しい順に表示</option>
     <option value="1" <%= slc1 %> >いいね順に表示</option>
+    <option value="2" <%= slc2 %> >時期で表示</option>
   </select>
 
-  <input type="submit" value="検索">
-</form>
-
-<!--検索機能ここまで-->
-
+  <% if params["sort_type"] == '2' %>
+  <select name="year">
+    <% for num in 1..4 do %>
+      <% if params["year"] == num.to_s %>
+        <option value=<%= num %> selected="selected"><%= num %></option>
+      <% else %>
+        <option value=<%= num %> ><%= num %></option>
+      <% end %>
+    <% end %>
+  </select>年次
+  <select name="month">
+    <% for num in 1..12 do %>
+      <% if params["month"] == num.to_s %>
+        <option value=<%= num %> selected="selected"><%= num %></option>
+      <% else %>
+        <option value=<%= num %> ><%= num %></option>
+      <% end %>
+    <% end %>
+  </select>月
+  <% end %>
 
 <% if params["department_select"].to_i > 0 %>
   <% @stories = @stories.where(department_id: params["department_select"]) %>
@@ -61,8 +80,15 @@
   <% @stories = Story.order('created_at DESC').all %>
 <% elsif params["sort_type"] == '1' %>
   <% @stories = Story.order('like_count DESC').all %>
+<% elsif params["sort_type"] == '2' %>
+  <% @stories = Story.where(year: params["year"].to_i, month: params["month"].to_i) %>
 <% end %>
 
+
+  <input type="submit" value="検索">
+</form>
+
+<!--検索機能ここまで-->
 
 <% if @stories.length == 0 %>
 
