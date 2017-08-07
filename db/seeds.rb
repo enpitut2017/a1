@@ -3,7 +3,6 @@
 Category.create(:name => '体験談')
 Category.create(:name => '面接')
 Category.create(:name => 'インターン')
-Category.create(:name => '全体の流れ')
 Category.create(:name => 'その他')
 
 Department.create(:name => '人文学類')
@@ -32,4 +31,4 @@ Department.create(:name => '医療科学類')
 Department.create(:name => '体育専門学群')
 Department.create(:name => '芸術専門学群')
 
-Story.create(:name => '小島', :content => '面接に落ちた', :category_id => '1', :year => '1996', :company => 'SONY', :department_id => '2')
+Story.create(:name => '小島', :content => '面接に落ちた', :category_id => '1', :year => '2016', :month => '4', :company => 'SONY', :department_id => '2', :title => '失敗談！')
