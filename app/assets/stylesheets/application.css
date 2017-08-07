@@ -77,3 +77,21 @@ table {
     width: 750px;
   }
 }
+
+/* カテゴリの色分け */
+
+.cat_bg1 {
+  background-color: #f8c378;
+}
+
+.cat_bg2 {
+  background-color: #dbd5df;
+}
+
+.cat_bg3 {
+  background-color: #a8bf8f;
+}
+
+.cat_bg4 {
+  background-color: #85cbf9;
+}
