@@ -2,15 +2,17 @@
 
 <h1>体験談詳細</h1>
 
-<%= link_to "いいね", story_like_path(@story), method: :patch, remote: true %>
-<%= @story.like_count %>
+
+
 
 <table class="table table-bordered" width="60%">
-  <col width="15%">
-  <col width="45%">
+  <col width="25%">
+  <col width="55%">
 
   <tr class="bg-primary">
-    <th colspan="2"><div class="title_text"><%= @story.title %></div></th>
+    <th colspan="3">
+      <div class="title_text"><%= @story.title %></div>
+    </th>
   </tr>
 
   <tr>
@@ -20,18 +22,29 @@
         (<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>)
       </td>
     <td>【時期】<%= @story.year %>年次<%= @story.month %>月</td>
+    <td rowspan="2" style="text-align: center;">
+      <%= link_to "いいね", story_like_path(@story), method: :patch, remote: true, :class => 'btn btn-danger' %>
+      <%
+        if @story.like_count.nil?
+          like_c = 0
+        else
+          like_c = @story.like_count
+        end
+      %>
+      <%= like_c %>
+    </td>
   </tr>
   <tr>
     <td>【企業名】<%= @story.company %></td>
   </tr>
   <tr>
-    <td>【カテゴリ】<%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %></td>
+    <td colspan="2">【カテゴリ】<%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %></td>
   </tr>
   <tr>
-    <td>【投稿日】<%= @story.created_at.to_s.split(" ")[0] %></td>
+    <td colspan="2">【投稿日】<%= @story.created_at.to_s.split(" ")[0] %></td>
   </tr>
   <tr>
-    <td colspan="2"><div class="content_pad"><%= simple_format(@story.content) %></div></td>
+    <td colspan="3"><div class="content_pad"><%= simple_format(@story.content) %></div></td>
   </tr>
 </table>
 
