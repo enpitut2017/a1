@@ -9,8 +9,14 @@ class StoriesController < ApplicationController
     @categories = Category.all
   end
 
-  # GET /stories/1
-  # GET /stories/1.json
+  def like
+    @story = Story.find(params[:story_id])
+    @story.like_count = 0 if @story.like_count.nil?
+    @story.like_count += 1
+    @story.save
+    redirect_to stories_url
+  end
+
   def show
   end
 
