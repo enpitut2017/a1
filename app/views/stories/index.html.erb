@@ -74,7 +74,8 @@
   <% elsif params["sort_type"] == '1' %>
     <% @stories = Story.order('like_count DESC').all %>
   <% elsif params["sort_type"] == '2' %>
-    <% @stories = Story.where(year: params["year"].to_i, month: params["month"].to_i) %>
+    <% @stories = Story.order('year, month ASC').where("year=#{params['year']} AND month>=#{params['month']}") %>
+    <% @stories += Story.order('year, month ASC').where("year>#{params['year']}") %>
   <% end %>
 
 <% if params["department_select"].to_i > 0 %>
