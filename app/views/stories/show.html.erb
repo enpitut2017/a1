@@ -1,18 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>体験談詳細</h1>
+<!-- <% params["department_select"] = @story.department.name %> -->
 
 <p>
   <strong>投稿者 :</strong>
-  <%= @story.name %>
+  <%= @story.name %> さん
 
-  （<%= @story.department.name %>
-  <%= @story.year %>年卒業）
+  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %> <%= @story.year %>年卒業）
+</p>
+
+<p>
+  <strong>投稿日 :</strong>
+  <%= @story.created_at.to_s.split(" ")[0] %>
 </p>
 
 <p>
   <strong>カテゴリ :</strong>
-  <%= @story.category.name %>
+  <%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %>
 </p>
 
 <p>
@@ -54,5 +59,5 @@
 
 
 
-<!-- <%= link_to 'Edit', edit_story_path(@story) %> | -->
-<%= link_to '一覧に戻る', stories_path %>
+<!-- <%= link_to 'Edit', edit_story_path(@story) %> | -->　
+<%= button_tag '一覧に戻る', onclick: 'history.back()', :class => 'btn btn-primary' %>

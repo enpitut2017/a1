@@ -2,20 +2,80 @@
 
 <h1>体験談一覧</h1>
 
-<% @stories.each do |story| %>
-  <table class="table table-bordered">
-    <tr>
-      <th style="width: 80px;" class="bg-primary">名前</th>
-      <td><%= story.name %></td>
-    </tr>
-    <tr>
-      <th style="width: 80px;" class="bg-primary">体験談</th>
-      <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
-      <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
-      <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-    </tr>
-  </table>
+<!--検索機能-->
+<form name="search_form" method="get">
+
+  <strong>学類</strong>
+  <% @departments = Department.all %>
+  <select name="department_select">
+    <option value="0">指定しない</option>
+    <% @departments.each do |dep| %>
+      <% if params["department_select"].to_i == dep.id %>
+        <option value="<%= dep.id %>" selected="selected"><%= dep.name %></option>
+      <% else %>
+        <option value="<%= dep.id %>"><%= dep.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+　
+  <strong>カテゴリ</strong>
+  <% @categories = Category.all %>
+  <select name="category_select">
+    <option value="0">指定しない</option>
+    <% @categories.each do |cat| %>
+      <% if params["category_select"].to_i == cat.id %>
+        <option value="<%= cat.id %>" selected="selected"><%= cat.name %></option>
+      <% else %>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+      <% end %>
+    <% end %>
+  </select>
+　
+  <input type="submit" value="検索">
+</form>
+<!--検索機能ここまで-->
+
+
+<% if params["department_select"].to_i > 0 %>
+  <% @stories = @stories.where(department_id: params["department_select"]) %>
+<% end %>
+<% if params["category_select"].to_i > 0 %>
+  <% @stories = @stories.where(category_id: params["category_select"]) %>
 <% end %>
 
+
+<% if @stories.length == 0 %>
+
+  <table class="table table-bordered">
+    <tr>
+      <td>現在、該当する投稿はありません。</td>
+    </tr>
+  </table>
+
+<% else %>
+
+  <% @stories.each do |story| %>
+    <table class="table table-bordered">
+      <tr>
+        <th style="width: 80px;" class="bg-primary">名前</th>
+        <td><%= story.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">体験談</th>
+        <% if story.content.length > 400 %>
+          <% story.content = story.content[0, 400] %>
+          <% story.content << "......" %>
+        <% end %>
+        <td><%= story.content %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+        <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+      </tr>
+      <tr>
+        <td class="border-only-top"></td>
+        <td class="border-only-top created-at">投稿日：<%= story.created_at.to_s.split(" ")[0] %></td>
+      </tr>
+    </table>
+  <% end %>
+<% end %>
 
 <%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
