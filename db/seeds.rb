@@ -31,4 +31,4 @@ Department.create(:name => '医療科学類')
 Department.create(:name => '体育専門学群')
 Department.create(:name => '芸術専門学群')
 
-Story.create(:name => '小島', :content => '面接に落ちた', :category_id => '1', :year => '2016', :month => '4', :company => 'SONY', :department_id => '2', :title => '失敗談！')
+Story.create(:name => '小島', :content => '面接に落ちた', :category_id => '1', :year => '4', :month => '4', :company => 'SONY', :department_id => '2', :title => '失敗談！')
