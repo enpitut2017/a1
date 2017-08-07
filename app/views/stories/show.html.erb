@@ -3,75 +3,39 @@
 <h1>体験談詳細</h1>
 <!-- <% params["department_select"] = @story.department.name %> -->
 
-<table class="table table-bordered" width="100%">
+<%= link_to "いいね", story_like_path(@story), method: :patch, remote: true %>
+<%= @story.like_count %>
+
+<table class="table table-bordered" width="60%">
   <col width="15%">
-  <col width="30%">
-  <col width="55%">
+  <col width="45%">
 
   <tr class="bg-primary">
-    <th colspan="2"><%= @story.title %></th>
+    <th colspan="2"><div class="title_text"><%= @story.title %></div></th>
   </tr>
 
   <tr>
     <td rowspan="4" class="centering_icon">
       <%= image_tag 'man_icon.png', :size => '80x80' %><br />
       <%= @story.name %>　さん<br />
-        (<%= @story.department.name %>)
+        (<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>)
       </td>
-    <td>時期：<%= @story.year %>年次　<%= @story.month %>月</td>
+    <td>【時期】<%= @story.year %>年次<%= @story.month %>月</td>
   </tr>
   <tr>
-    <td>企業名：<%= @story.company %></td>
+    <td>【企業名】<%= @story.company %></td>
   </tr>
   <tr>
-    <td>カテゴリ：<%= @story.category.name %></td>
+    <td>【カテゴリ】<%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %></td>
   </tr>
   <tr>
-    <td><div align="right">投稿日：<%= @story.created_at.to_s.split(" ")[0] %></div></td>
+    <td>【投稿日】<%= @story.created_at.to_s.split(" ")[0] %></td>
   </tr>
   <tr>
-    <td colspan="3" border="5"><%= simple_format(@story.content) %></td>
+    <td colspan="2"><div class="content_pad"><%= simple_format(@story.content) %></div></td>
   </tr>
 </table>
 
-
-
-<p>
-  <strong>タイトル :</strong>
-  <%= @story.title %>
-</p>
-
-<p>
-  <strong>投稿者 :</strong>
-  <%= @story.name %> さん
-
-  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>）
-</p>
-
-<p>
-  <strong>投稿日 :</strong>
-  <%= @story.created_at.to_s.split(" ")[0] %>
-</p>
-
-<p>
-  <strong>カテゴリ :</strong>
-  <%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %>
-</p>
-
-<p>
-  <strong>時期 :</strong>
-  <%= @story.year %>年次　<%= @story.month %>月
-</p>
-
-<p>
-  <strong>企業名 :</strong>
-  <%= @story.company %>
-</p>
-
-<p>
-  <strong>体験談:<br /></strong>
-  <%= simple_format(@story.content) %>
-</p>
 
 
 <!-- <div class="share container">
