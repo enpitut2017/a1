@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>体験談詳細</h1>
-<!-- <% params["department_select"] = @story.department.name %> -->
 
 <%= link_to "いいね", story_like_path(@story), method: :patch, remote: true %>
 <%= @story.like_count %>
@@ -66,4 +65,4 @@
 
 
 <!-- <%= link_to 'Edit', edit_story_path(@story) %> | -->　
-<%= button_tag '一覧に戻る', onclick: 'history.back()', :class => 'btn btn-primary' %>
+<%= link_to '一覧に戻る', stories_path(department_select: params["department_select"], category_select: params["category_select"]), :class => 'btn btn-primary' %>
