@@ -1,8 +1,8 @@
 <%= form_with(model: story, local: true) do |form| %>
   <% if story.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2>
-
+<!--      <h2><%= pluralize(story.errors.count, "error") %> prohibited this story from being saved:</h2> -->
+      <h2><%= story.errors.count %>個のエラーがあります。</h2>
       <ul>
       <% story.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,6 +11,40 @@
     </div>
   <% end %>
 
+  <table class="table">
+    <tr>
+      <th style="width: 10rem;"><%= form.label :name, "名前" %></th>
+      <td><%= form.text_field :name, id: :story_name %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :title, "タイトル" %></th>
+      <td><%= form.text_field :title, id: :story_title, size: "80" %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :department_id, "学類" %></th>
+      <td><%= form.collection_select :department_id, Department.all, :id, :name ,:department_id => 1 %></td>
+    </tr>
+    <tr>
+      <th>時期</th>
+      <td><%= select_tag 'story[year]', options_for_select([["1年", "1"], ["2年", "2"], ["3年", "3"], ["4年", "4"]]) %><%= select_tag 'story[month]', options_for_select([["4月", "4"], ["5月", "5"], ["6月", "6"], ["7月", "7"], ["8月", "8"], ["9月", "9"], ["10月", "10"], ["11月", "11"], ["12月", "12"], ["1月", "1"], ["2月", "2"], ["3月", "3"]]) %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :category_id, "カテゴリー" %></th>
+      <td><%= form.collection_select :category_id, Category.all, :id, :name ,:category_id => 1 %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :company, "企業名" %></th>
+      <td><%= form.text_field :company, id: :story_company, size: "80" %></td>
+    </tr>
+    <tr>
+      <th><%= form.label :content, "内容" %></th>
+      <td><%= form.text_area :content, id: :story_content, size: "80x10" %></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;"><%= form.submit "投稿", :class => 'btn btn-primary' %></td>
+    </tr>
+  </table>
+<!--
   <div class="field">
     <%= form.label :name, "名前" %>
     <%= form.text_field :name, id: :story_name %>
@@ -52,5 +86,5 @@
 
   <div class="actions">
     <%= form.submit "体験談を投稿する", :class => 'btn btn-primary' %>
-  </div>
+  </div>-->
 <% end %>
