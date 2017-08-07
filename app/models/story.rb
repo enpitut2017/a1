@@ -3,18 +3,10 @@ class Story < ApplicationRecord
   belongs_to :category, optional: true
   belongs_to :department, optional: true
 
-  validate :content_error
   validate :name_error
   validate :title_error
   validate :company_error
-
-  def content_error
-    #contentが空の時にエラーメッセージを追加する
-    if content.empty?
-      #errors.add(:content, "に関するエラーを追加")
-      errors[:base] << "体験談の欄は空白のまま送信できません"
-    end
-  end
+  validate :content_error
 
   def name_error
     #nameが空の時にエラーメッセージを追加する
@@ -46,6 +38,13 @@ class Story < ApplicationRecord
     end
   end
 
+  def content_error
+    #contentが空の時にエラーメッセージを追加する
+    if content.empty?
+      #errors.add(:content, "に関するエラーを追加")
+      errors[:base] << "内容の欄は空白のまま送信できません"
+    end
+  end
 
 
 end
