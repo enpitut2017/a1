@@ -55,26 +55,35 @@
 <% else %>
 
   <% @stories.each do |story| %>
+    <% cat_id = story.category_id %>
+    <% cls = "cat_bg" + cat_id.to_s %>
     <table class="table table-bordered">
-      <tr>
-        <th style="width: 80px;" class="bg-primary">名前</th>
-        <td><%= story.name %></td>
+      <tr class="<%= cls %>">
+        <th colspan="3"><%= story.title %><div align="right"><%= story.category.name %></div></th>
       </tr>
       <tr>
-        <th style="width: 80px;" class="bg-primary">体験談</th>
+        <td><%= story.department.name %></td>
+        <td><%= story.company %></td>
+        <td>大学<%= story.year %>年　<%= story.month %>月</td>
+      </tr>
+
+      <tr>
+
 
 <%= link_to "いいね", story_like_path(story), method: :patch, remote: true %>
 <%= story.like_count %>
-        <td><%= truncate(simple_format(story.content), length: 160, escape: false) %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
+        <td colspan="3"><%= truncate(simple_format(story.content), length: 160, escape: false) %><br><%= link_to 'もっと見る', story, :class => 'btn btn-success pull-right' %></td>
         <!--<td><%= link_to 'Edit', edit_story_path(story) %></td>
         <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
       <tr>
-        <td class="border-only-top"></td>
-        <td class="border-only-top created-at">投稿日：<%= story.created_at.to_s.split(" ")[0] %></td>
+        <td colspan="3" class="border-only-top created-at">投稿日：<%= story.created_at.to_s.split(" ")[0] %></td>
       </tr>
     </table>
   <% end %>
 <% end %>
 
-<%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%>
+<%= link_to '新しい体験談を投稿する', new_story_path, :class => 'btn btn-primary'%><br><br>
+  <p id="pageTop">
+    <%= link_to 'Page top', "#", :class => 'btn btn-default'%>
+  </p>

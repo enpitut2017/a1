@@ -3,11 +3,49 @@
 <h1>体験談詳細</h1>
 <!-- <% params["department_select"] = @story.department.name %> -->
 
+<table class="table table-bordered" width="100%">
+  <col width="15%">
+  <col width="30%">
+  <col width="55%">
+
+  <tr class="bg-primary">
+    <th colspan="2"><%= @story.title %></th>
+  </tr>
+
+  <tr>
+    <td rowspan="4" class="centering_icon">
+      <%= image_tag 'man_icon.png', :size => '80x80' %><br />
+      <%= @story.name %>　さん<br />
+        (<%= @story.department.name %>)
+      </td>
+    <td>時期：<%= @story.year %>年次　<%= @story.month %>月</td>
+  </tr>
+  <tr>
+    <td>企業名：<%= @story.company %></td>
+  </tr>
+  <tr>
+    <td>カテゴリ：<%= @story.category.name %></td>
+  </tr>
+  <tr>
+    <td><div align="right">投稿日：<%= @story.created_at.to_s.split(" ")[0] %></div></td>
+  </tr>
+  <tr>
+    <td colspan="3" border="5"><%= simple_format(@story.content) %></td>
+  </tr>
+</table>
+
+
+
+<p>
+  <strong>タイトル :</strong>
+  <%= @story.title %>
+</p>
+
 <p>
   <strong>投稿者 :</strong>
   <%= @story.name %> さん
 
-  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %> <%= @story.year %>年卒業）
+  （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>）
 </p>
 
 <p>
@@ -21,6 +59,11 @@
 </p>
 
 <p>
+  <strong>時期 :</strong>
+  <%= @story.year %>年次　<%= @story.month %>月
+</p>
+
+<p>
   <strong>企業名 :</strong>
   <%= @story.company %>
 </p>
@@ -31,11 +74,11 @@
 </p>
 
 
-<div class="share container">
+<!-- <div class="share container">
 		<div class="row">
 			<div class="sharebtns col-xs-6 col-sm-4">
 				<div class="twitterbtn">
-          <script language="JavaScript"><!--document.write("URL:"+location.href);// --></script>
+          <script language="JavaScript">document.write("URL:"+location.href);</script>
 					<a href="http://twitter.com/share?url=サイトのurl&text=ツイートに表示する文章&via=ツイッターのアカウント名" target="_blank">Twitter</a>
 				</div>
 			</div>
@@ -51,9 +94,8 @@
 					<a href="http://line.me/R/msg/text/?投稿する文章とサイトのurl" target="_new">LINE</a>
 				</div>
 			</div>
-
 		</div>
-	</div>
+	</div> -->
 
 
 
