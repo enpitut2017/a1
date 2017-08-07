@@ -17,7 +17,7 @@
         <option value="<%= dep.id %>"><%= dep.name %></option>
       <% end %>
     <% end %>
-  </select>カテゴリ：
+  </select>　カテゴリ：
   <% @categories = Category.all %>
   <select name="category_select">
     <option value="0">指定しない</option>
@@ -28,8 +28,7 @@
         <option value="<%= cat.id %>"><%= cat.name %></option>
       <% end %>
     <% end %>
-  </select>
-  <input type="submit" value="検索">
+  </select>　<input type="submit" value="検索">
 </form>
 <!--検索機能ここまで-->
 
