@@ -57,8 +57,23 @@
   <% @stories.each do |story| %>
     <table class="table table-bordered">
       <tr>
-        <th style="width: 80px;" class="bg-primary">名前</th>
-        <td><%= story.name %></td>
+        <th style="width: 80px;" class="bg-primary" colspan="3"><%= story.title %></th>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">企業名</th>
+        <td><%= story.company %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">時期</th>
+        <td>大学<%= story.year %>年　<%= story.month %>月</td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">カテゴリ</th>
+        <td><%= story.category.name %></td>
+      </tr>
+      <tr>
+        <th style="width: 80px;" class="bg-primary">学類</th>
+        <td><%= story.department.name %></td>
       </tr>
       <tr>
         <th style="width: 80px;" class="bg-primary">体験談</th>
