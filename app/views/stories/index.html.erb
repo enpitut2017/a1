@@ -52,21 +52,21 @@
   <select name="year">
     <% for num in 1..4 do %>
       <% if params["year"] == num.to_s %>
-        <option value=<%= num %> selected="selected"><%= num %></option>
+        <option value=<%= num %> selected="selected">大学<%= num %>年</option>
       <% else %>
-        <option value=<%= num %> ><%= num %></option>
+        <option value=<%= num %>>大学<%= num %>年</option>
       <% end %>
     <% end %>
-  </select>年次
+  </select>
   <select name="month">
     <% for num in 1..12 do %>
       <% if params["month"] == num.to_s %>
-        <option value=<%= num %> selected="selected"><%= num %></option>
+        <option value=<%= num %> selected="selected"><%= num %>月</option>
       <% else %>
-        <option value=<%= num %> ><%= num %></option>
+        <option value=<%= num %>><%= num %>月</option>
       <% end %>
     <% end %>
-  </select>月
+  </select>
 
 
   <% if params["sort_type"] == '0' %>
