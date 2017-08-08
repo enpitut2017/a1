@@ -29,7 +29,7 @@
       <% end %>
     <% end %>
   </select>　
-
+<br>
   <!--ソート方法-->
   <select name="sort_type">
     <% slc0 = '' %>
@@ -52,12 +52,12 @@
   <select name="year">
     <% for num in 1..4 do %>
       <% if params["year"] == num.to_s %>
-        <option value=<%= num %> selected="selected"><%= num %></option>
+        <option value=<%= num %> selected="selected"><%= num.to_s + "年次" %></option>
       <% else %>
-        <option value=<%= num %> ><%= num %></option>
+        <option value=<%= num %> ><%= num.to_s + "年次" %></option>
       <% end %>
     <% end %>
-  </select>年次
+  </select>
   <select name="month">
     <% for num in 1..12 do %>
       <% if params["month"] == num.to_s %>
