@@ -5,12 +5,15 @@
 
 
 
-<table class="table table-bordered" width="60%">
-  <col width="25%">
-  <col width="55%">
+<table class="table table-bordered">
+  <col width="30%">
+  <col width="15%">
+  <col width="35%">
 
-  <tr class="bg-primary">
-    <th colspan="3">
+    <% cat_id = @story.category_id %>
+    <% cls = "cat_bg" + cat_id.to_s %>
+  <tr class="<%= cls %>">
+    <th colspan="4">
       <div class="title_text"><%= @story.title %></div>
     </th>
   </tr>
@@ -18,11 +21,12 @@
   <tr>
     <td rowspan="4" class="centering_icon">
       <%= image_tag 'man_icon.png', :size => '80x80' %><br />
-      <%= @story.name %>　さん<br />
-        (<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>)
+      <%= @story.name %> さん<br />
+        （<%= link_to @story.department.name, stories_path+'/?department_select='+@story.department.id.to_s, :class => 'textlink' %>）
       </td>
-    <td>【時期】<%= @story.year %>年次<%= @story.month %>月</td>
-    <td rowspan="2" style="text-align: center;">
+    <th>カテゴリ</th>
+    <td><%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %></td>
+    <td rowspan="4" style="text-align: center;">
       <%= link_to "いいね", story_like_path(@story), method: :patch, remote: true, :class => 'btn btn-danger' %>
       <%
         if @story.like_count.nil?
@@ -35,16 +39,19 @@
     </td>
   </tr>
   <tr>
-    <td>【企業名】<%= @story.company %></td>
+    <th>企業名</th>
+    <td><%= @story.company %></td>
   </tr>
   <tr>
-    <td colspan="2">【カテゴリ】<%= link_to @story.category.name, stories_path+'/?category_select='+@story.category.id.to_s, :class => 'textlink' %></td>
+    <th>時期</th>
+    <td>大学<%= @story.year %>年<%= @story.month %>月</td>
+</tr>
+  <tr>
+    <th>投稿日</th>
+    <td><%= @story.created_at.to_s.split(" ")[0] %></td>
   </tr>
   <tr>
-    <td colspan="2">【投稿日】<%= @story.created_at.to_s.split(" ")[0] %></td>
-  </tr>
-  <tr>
-    <td colspan="3"><div class="content_pad"><%= simple_format(@story.content) %></div></td>
+    <td colspan="4"><div class="content_pad"><%= simple_format(@story.content) %></div></td>
   </tr>
 </table>
 
